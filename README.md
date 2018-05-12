@@ -2,7 +2,7 @@
 
 <img width="100" alt="img" src="https://rawgit.com/stylekit/img/master/GraphicsLib.svg">
 
-Simplifies Drawing vector graphics to NSView [More info](http://stylekit.org/blog/2015/12/30/Graphic-framework-for-OSX/)   
+Simplifies Drawing vector graphics to NSView [More info](http://eon.codes/blog/2015/12/30/Graphic-framework-for-OSX/)   
 
 <img width="650" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/Screen Shot 2015-12-26 at 10.30.58.png">
 
