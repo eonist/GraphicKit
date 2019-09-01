@@ -3,8 +3,8 @@ import Cocoa
  * Manifesto:
  * 1. This class should only provide access to the graphic instance
  * 2. Contain all the instructions to draw on to the graphic
- * NOTE: it should not contain style, size or position
- * TODO: Remove the getGraphics
+ * - Note: it should not contain style, size or position
+ * - Fixme: ⚠️️ Remove the getGraphics
  */
 class GraphicDecoratable:AbstractGraphicDecoratable {
     var decoratable:GraphicDecoratableKind
@@ -26,7 +26,7 @@ class GraphicDecoratable:AbstractGraphicDecoratable {
     }
     /**
      * This method starts the actual drawing of the path and style to the context (for fill and stroke)
-     * NOTE: This method gets it's call from the Graphic instance through a functional selector. Which gets it's call through a instance selector. The call is fired when OSX deems it right to be fired. This is initiated by setNeedsDisplay calls on the line and the fill shape (This )
+     * - Note: This method gets it's call from the Graphic instance through a functional selector. Which gets it's call through a instance selector. The call is fired when OSX deems it right to be fired. This is initiated by setNeedsDisplay calls on the line and the fill shape (This )
      */
     func handleSelector(layer:CALayer,ctx:CGContext) {
         //isDrawing = false//reset if(!isDrawing){}
@@ -40,7 +40,7 @@ class GraphicDecoratable:AbstractGraphicDecoratable {
     }
     /**
      * This method results in the actual drawing of the fill to the context
-     * NOTE: Conceptually this is equvielnt to the line call
+     * - Note: Conceptually this is equvielnt to the line call
      */
     override func fill(){
         beginFill()
@@ -48,7 +48,7 @@ class GraphicDecoratable:AbstractGraphicDecoratable {
     }
     /**
      * This method results in the setting of filling type to the graphics instance
-     * NOTE: Conceptually this is equvielnt to the applyLineStyle call
+     * - Note: Conceptually this is equvielnt to the applyLineStyle call
      */
     override func beginFill(){
         decoratable.beginFill()
@@ -67,14 +67,14 @@ class GraphicDecoratable:AbstractGraphicDecoratable {
     }
     /**
      * This method results in the actual drawing of the stroke to the context
-     * NOTE: Conceptually this is equvielnt to the fill call
+     * - Note: Conceptually this is equvielnt to the fill call
      */
     override func line(){
         applyLineStyle()
         stylizeLine()
     }
     /**
-     * NOTE: Conceptually this is equvielnt to the beginFill call
+     * - Note: Conceptually this is equvielnt to the beginFill call
      */
     override func applyLineStyle(){
         decoratable.applyLineStyle()
@@ -93,8 +93,8 @@ class GraphicDecoratable:AbstractGraphicDecoratable {
     }
     /**
      * Returns _decoratable.graphic
-     * NOTE: we use decoratable.graphic to get to the graphics object, regardless of how many layers of decorators above.
-     * TODO: remove this if applicaple
+     * - Note: we use decoratable.graphic to get to the graphics object, regardless of how many layers of decorators above.
+     * - Fixme: ⚠️️ remove this if applicaple
      */
     override func getGraphic() -> BaseGraphic{
         return self.decoratable.getGraphic()

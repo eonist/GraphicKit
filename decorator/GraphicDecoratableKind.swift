@@ -21,12 +21,12 @@ protocol GraphicDecoratableKind:class{/*<--Explain why this extends class*/
     func draw()/*Setup the geometry and init the display process of fill and line*/
 }
 extension GraphicDecoratableKind where Self:Positional, Self:Sizable{
-    var frame:CGRect {return CGRect(self.pos, self.size)}
+    var frame: CGRect {return CGRect(self.pos, self.size)}
 }
 extension GraphicDecoratableKind{
     /**
-     * NOTE: Returns the actual type! 🎉
-     * Looks through the decorators and finds the reference which matches the PARAM: classType
+     * - Note: Returns the actual type! 🎉
+     * Looks through the decorators and finds the reference which matches the - Parameter: classType
      */
     func get<T:GraphicDecoratableKind>(_ classType:T.Type) -> T?{
         return DecoratorUtils.decoratable(self, classType) as? T
@@ -36,6 +36,6 @@ extension GraphicDecoratableKind{
 /*
  func getSize()->CGSize
  func getPosition()->CGPoint
- func setSize(size:CGSize)
- func setPosition(position:CGPoint)
+ func setSize(size: CGSize)
+ func setPosition(position: CGPoint)
  */

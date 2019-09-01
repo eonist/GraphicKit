@@ -1,26 +1,26 @@
 import Foundation
 class LineGraphic:SizeableDecorator {
-    var p1:CGPoint;
-    var p2:CGPoint;
-    init(_ p1:CGPoint = CGPoint(), _ p2:CGPoint = CGPoint(), _ decoratable:GraphicDecoratableKind = BaseGraphic(nil,LineStyle())) {
+    var p1: CGPoint;
+    var p2: CGPoint;
+    init(_ p1: CGPoint = CGPoint(), _ p2: CGPoint = CGPoint(), _ decoratable:GraphicDecoratableKind = BaseGraphic(nil,LineStyle())) {
         self.p1 = p1
         self.p2 = p2
         super.init(decoratable)
     }
     override func drawLine() {
-        let pos:CGPoint = getPosition()
-        let size:CGSize = getSize()
-        let rect:CGRect = CGRect(pos,size)
+        let pos: CGPoint = getPosition()
+        let size: CGSize = getSize()
+        let rect: CGRect = CGRect(pos,size)
         let lineOffsetRect = RectGraphicUtils.lineOffsetRect(rect, graphic.lineStyle!.thickness, graphic.lineOffsetType)
         graphic.lineShape.frame = lineOffsetRect.lineFrameRect
-        let a:CGPoint = lineOffsetRect.lineRect.topLeft + p1-pos//<--p1,p2 is now in 0,0 coordinate space. Since the frame should only cover the actual path. We also offset the points to support the lineoffset
-        let b:CGPoint = lineOffsetRect.lineRect.topLeft + p2-pos
+        let a: CGPoint = lineOffsetRect.lineRect.topLeft + p1-pos//<--p1,p2 is now in 0,0 coordinate space. Since the frame should only cover the actual path. We also offset the points to support the lineoffset
+        let b: CGPoint = lineOffsetRect.lineRect.topLeft + p2-pos
         graphic.lineShape.path = CGPathParser.line(a, b)
     }
     override func drawFill() {
         /*Must be overriden, there is no fill when using the LineGraphic*/
     }
-    func setPoints(_ p1:CGPoint, _ p2:CGPoint) {
+    func setPoints(_ p1: CGPoint, _ p2: CGPoint) {
         self.p1 = p1
         self.p2 = p2
         draw()//<--new

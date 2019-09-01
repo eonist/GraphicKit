@@ -1,7 +1,7 @@
 import Cocoa
 /*
  * The AbstractDecorator has all the decorator methods
- * NOTE: extending NSObject is needed in order to get respondToSelector to work when using the delegate method for the CALayers etc
+ * - Note: extending NSObject is needed in order to get respondToSelector to work when using the delegate method for the CALayers etc
  */
 class AbstractGraphicDecoratable:GraphicDecoratableKind{
     let errMsg:String = "Must be overridden in subClass"

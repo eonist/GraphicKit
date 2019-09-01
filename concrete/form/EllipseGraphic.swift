@@ -1,12 +1,12 @@
 import Cocoa
 /**
- * NOTE: Don't create a circle class, ellipse will do the same as a circle
- * NOTE: EllipseGraphic is drawn from topLeft
- * TODO: possibly add a diameter var
+ * - Note: Don't create a circle class, ellipse will do the same as a circle
+ * - Note: EllipseGraphic is drawn from topLeft
+ * - Fixme: ⚠️️ ⚠️️ possibly add a diameter var
  */
 class EllipseGraphic:SizeableGraphic{
     override func drawFill() {
-        let fillFrame:CGRect = {
+        let fillFrame: CGRect = {
             if let lineStyle = graphic.lineStyle {
                 return RectGraphicUtils.fillFrame(CGRect(x,y,width,height), lineStyle.thickness, graphic.lineOffsetType)
             };return CGRect(x,y,width,height)
